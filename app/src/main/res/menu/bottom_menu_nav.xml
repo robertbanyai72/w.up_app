@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/cards"
+        android:title="Cards"
+        android:icon="@drawable/nav_cards"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/transactions"
+        android:title="Transactions"
+        android:icon="@drawable/nav_trans"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/statements"
+        android:title="Statements"
+        android:icon="@drawable/nav_state"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/more"
+        android:title="More"
+        android:icon="@drawable/nav_more"
+        app:showAsAction="withText" />
+</menu>

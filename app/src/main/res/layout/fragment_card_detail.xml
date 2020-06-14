@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeftSide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRightSide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <TextView
+            android:id="@+id/textViewCurrentBalanceTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_current_balance_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_current_balance_title"
+            android:textColor="@color/textColorLightBlue"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewCurrentBalance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/applicationOrange"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBalanceTitle" />
+
+        <TextView
+            android:id="@+id/textViewAvailableAmountTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_available_amount_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_available_title"
+            android:textColor="@color/textColorLightBlue"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewAvailableAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_20"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAvailableAmountTitle" />
+
+        <View
+            android:id="@+id/viewChartAvailable"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_detail_chart_height"
+            android:layout_marginTop="@dimen/card_detail_chart_top_margin"
+            android:background="@color/chartIndicatorBlue"
+            app:layout_constraintLeft_toRightOf="@+id/guidelineAvailableAmount"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBalance" />
+
+        <View
+            android:id="@+id/viewChartReservations"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_detail_chart_height"
+            android:layout_marginTop="@dimen/card_detail_chart_top_margin"
+            android:background="@color/chartIndicatorOrangeLight"
+            app:layout_constraintLeft_toRightOf="@+id/guidelineCurrentBalance"
+            app:layout_constraintRight_toLeftOf="@+id/guidelineAvailableAmount"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBalance" />
+
+        <View
+            android:id="@+id/viewChartCurrentBalance"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_detail_chart_height"
+            android:layout_marginTop="@dimen/card_detail_chart_top_margin"
+            android:background="@color/chartIndicatorOrange"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/guidelineCurrentBalance"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBalance" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCurrentBalance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAvailableAmount"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <View
+            android:id="@+id/viewReservationsIndicator"
+            android:layout_width="@dimen/card_detail_reservations_indicator_width"
+            android:layout_height="@dimen/card_detail_reservations_indicator_height"
+            android:layout_marginTop="@dimen/card_detail_reservations_indicator_top_margin"
+            android:background="@color/chartIndicatorOrangeLight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewChartCurrentBalance" />
+
+        <TextView
+            android:id="@+id/textViewReservationsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_detail_reservations_title_start_margin"
+            android:layout_marginEnd="@dimen/card_detail_reservations_title_end_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_reservations_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintBottom_toBottomOf="@+id/viewReservationsIndicator"
+            app:layout_constraintLeft_toRightOf="@+id/viewReservationsIndicator"
+            app:layout_constraintRight_toLeftOf="@+id/textViewReservationsCurrency"
+            app:layout_constraintTop_toTopOf="@id/viewReservationsIndicator" />
+
+        <TextView
+            android:id="@+id/textViewReservations"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_detail_reservations_start_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewReservationsCurrency"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewReservationsTitle" />
+
+        <TextView
+            android:id="@+id/textViewReservationsCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/card_detail_currency_end_margin"
+            android:fontFamily="@font/roboto"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewReservationsTitle" />
+
+        <View
+            android:id="@+id/separatorReservations"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewReservationsIndicator" />
+
+        <TextView
+            android:id="@+id/textViewBalanceOverview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_section_title_top_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/card_detail_balance_overview_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/separatorReservations" />
+
+        <TextView
+            android:id="@+id/textViewBalanceCarriedTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_balance_carried_title_top_margin"
+            android:layout_marginEnd="@dimen/card_detail_balance_carried_title_end_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_balance_carried_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewBalanceCarriedCurrency"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBalanceOverview" />
+
+        <TextView
+            android:id="@+id/textViewBalanceCarried"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_detail_balance_carried_start_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewBalanceCarriedCurrency"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewBalanceCarriedTitle" />
+
+        <TextView
+            android:id="@+id/textViewBalanceCarriedCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/card_detail_currency_end_margin"
+            android:fontFamily="@font/roboto"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewBalanceCarriedTitle" />
+
+        <View
+            android:id="@+id/separatorBalanceCarried"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBalanceCarriedTitle" />
+
+        <TextView
+            android:id="@+id/textViewTotalSpendingTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_total_spending_title_top_margin"
+            android:layout_marginEnd="@dimen/card_detail_total_spending_title_end_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_total_spending_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewTotalSpendingCurrency"
+            app:layout_constraintTop_toBottomOf="@+id/separatorBalanceCarried" />
+
+        <TextView
+            android:id="@+id/textViewTotalSpending"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_detail_total_spending_start_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewTotalSpendingCurrency"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewTotalSpendingTitle" />
+
+        <TextView
+            android:id="@+id/textViewTotalSpendingCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/card_detail_currency_end_margin"
+            android:fontFamily="@font/roboto"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewTotalSpendingTitle" />
+
+        <View
+            android:id="@+id/separatorTotalSpending"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTotalSpendingTitle" />
+
+        <TextView
+            android:id="@+id/textViewLatestRePaymentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_latest_re_payment_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_re_payment_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewLatestRePayment"
+            app:layout_constraintTop_toBottomOf="@+id/separatorTotalSpending" />
+
+        <TextView
+            android:id="@+id/textViewLatestRePayment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewLatestRePaymentTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewLatestRePaymentTitle" />
+
+        <View
+            android:id="@+id/separatorLatestRePayment"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLatestRePaymentTitle" />
+
+        <TextView
+            android:id="@+id/textViewAccountDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_section_title_top_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/card_detail_account_details_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/separatorLatestRePayment" />
+
+        <TextView
+            android:id="@+id/textViewAccountLimitTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_account_limit_title_top_margin"
+            android:layout_marginEnd="@dimen/card_detail_account_title_start_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_account_limit_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewBalanceCarriedCurrency"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAccountDetails" />
+
+        <TextView
+            android:id="@+id/textViewAccountLimit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_detail_account_limit_start_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewAccountLimitCurrency"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewAccountLimitTitle" />
+
+        <TextView
+            android:id="@+id/textViewAccountLimitCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/card_detail_currency_end_margin"
+            android:fontFamily="@font/roboto"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewAccountLimitTitle" />
+
+        <View
+            android:id="@+id/separatorAccountLimit"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAccountLimitTitle" />
+
+        <TextView
+            android:id="@+id/textViewAccountNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_account_number_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_card_account_number_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewAccountNumber"
+            app:layout_constraintTop_toBottomOf="@+id/separatorAccountLimit" />
+
+        <TextView
+            android:id="@+id/textViewAccountNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewAccountNumberTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewAccountNumberTitle" />
+
+        <View
+            android:id="@+id/separatorAccountNumber"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAccountNumberTitle" />
+
+        <TextView
+            android:id="@+id/textViewMainCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_section_title_top_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/card_detail_main_card_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/separatorAccountNumber" />
+
+        <TextView
+            android:id="@+id/textViewMainCardNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_main_card_number_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_main_card_number_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewMainCardNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMainCard" />
+
+        <TextView
+            android:id="@+id/textViewMainCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewMainCardNumberTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewMainCardNumberTitle" />
+
+        <View
+            android:id="@+id/separatorMainCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMainCardNumberTitle" />
+
+        <TextView
+            android:id="@+id/textViewMainCardHolderNameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_main_card_holder_name_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_main_card_holder_name_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewMainCardHolderName"
+            app:layout_constraintTop_toBottomOf="@+id/separatorMainCardNumber" />
+
+        <TextView
+            android:id="@+id/textViewMainCardHolderName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewMainCardHolderNameTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewMainCardHolderNameTitle" />
+
+        <View
+            android:id="@+id/separatorMainCardHolderName"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMainCardHolderNameTitle" />
+
+        <TextView
+            android:id="@+id/textViewSupplementaryCardTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_section_title_top_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/card_detail_supplementary_card_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorGray"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toBottomOf="@+id/separatorMainCardHolderName" />
+
+        <TextView
+            android:id="@+id/textViewSupplementaryCardNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_supplementary_card_number_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_supplementary_card_number_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewSupplementaryCardNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSupplementaryCardTitle" />
+
+        <TextView
+            android:id="@+id/textViewSupplementaryCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewSupplementaryCardNumberTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewSupplementaryCardNumberTitle" />
+
+        <View
+            android:id="@+id/separatorSupplementaryCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSupplementaryCardNumberTitle" />
+
+        <TextView
+            android:id="@+id/textViewSupplementaryCardHolderNameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_detail_supplementary_card_holder_name_title_top_margin"
+            android:fontFamily="@font/roboto"
+            android:text="@string/card_detail_supplementary_card_holder_name_title"
+            android:textColor="@color/textColorLightBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toLeftOf="@+id/textViewSupplementaryCardHolderName"
+            app:layout_constraintTop_toBottomOf="@+id/separatorSupplementaryCardNumber" />
+
+        <TextView
+            android:id="@+id/textViewSupplementaryCardHolderName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="end"
+            android:textColor="@color/textColorBlue"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintLeft_toRightOf="@+id/textViewSupplementaryCardHolderNameTitle"
+            app:layout_constraintRight_toRightOf="@id/guidelineRightSide"
+            app:layout_constraintTop_toTopOf="@+id/textViewSupplementaryCardHolderNameTitle" />
+
+        <View
+            android:id="@+id/separatorSupplementaryCardHolderName"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/card_detail_separator_top_margin"
+            android:layout_marginBottom="@dimen/card_detail_separator_supplementary_card_holder_name_bottom_margin"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeftSide"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSupplementaryCardHolderNameTitle" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- I prefer to use group instead of wrapping it with another container layout, what would make the view hierarchy deeper -->
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="separatorSupplementaryCardHolderName, textViewSupplementaryCardHolderName,
+            textViewSupplementaryCardHolderNameTitle, separatorSupplementaryCardNumber, textViewSupplementaryCardNumberTitle,
+            @+id/textViewSupplementaryCardTitle, textViewMainCardHolderName, textViewMainCardHolderNameTitle, separatorMainCardHolderName,
+            separatorMainCardNumber, textViewMainCardNumber, textViewMainCardNumberTitle, textViewMainCard,
+            textViewAccountDetails, textViewAccountLimit, textViewAccountLimitCurrency, textViewAccountLimitTitle,
+            textViewAccountNumber, textViewAccountNumberTitle, separatorAccountNumber, textViewLatestRePaymentTitle, textViewLatestRePayment,
+            separatorLatestRePayment, textViewTotalSpending, textViewTotalSpendingCurrency, textViewTotalSpendingTitle,
+            separatorTotalSpending, textViewBalanceCarried, textViewBalanceCarriedCurrency, textViewBalanceCarriedTitle,
+            separatorBalanceCarried, textViewBalanceOverview, separatorReservations, textViewReservations, textViewReservationsCurrency,
+            textViewReservationsTitle, textViewSupplementaryCardNumber, viewReservationsIndicator, viewChartAvailable,
+            viewChartCurrentBalance, viewChartReservations, textViewCurrentBalance, textViewCurrentBalanceTitle,
+            textViewAvailableAmount, textViewAvailableAmountTitle, separatorAccountLimit, textViewSupplementaryCardTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

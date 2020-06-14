@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/applicationOrange" />
+    <size
+        android:width="@dimen/bottom_navigation_view_badge_size"
+        android:height="@dimen/bottom_navigation_view_badge_size" />
+</shape>

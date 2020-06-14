@@ -1,0 +1,17 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewNotificationBadge"
+        android:layout_width="@dimen/bottom_navigation_view_badge_size"
+        android:layout_height="@dimen/bottom_navigation_view_badge_size"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginStart="@dimen/bottom_navigation_view_badge_start_margin"
+        android:background="@drawable/bottom_navigation_badge_background"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:padding="@dimen/bottom_navigation_view_badge_padding"
+        android:layout_marginTop="@dimen/bottom_navigation_badge_top_margin"
+        android:text="3"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_10" />
+</merge>

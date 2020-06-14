@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/applicationLightBlue</item>
+        <item name="colorPrimaryDark">@color/applicationBlue</item>
+        <item name="colorAccent">@color/applicationOrange</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="itemIconTint">@color/navigation_item_color_selector</item>
+        <item name="itemTextColor">@color/navigation_item_color_selector</item>
+    </style>
+</resources>

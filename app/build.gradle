@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
+project.ext {
+    rxBindingVersion = "2.1.1"
+    okhttpVersion = "4.5.0"
+    retrofitVersion = "2.9.0"
+    rxAndroidVersion = "3.0.0"
+    rxKotlinVersion = "3.0.0"
+    daggerVersion = "2.27"
+    timberVersion = "4.7.1"
+    metarialVersion = "1.3.0-alpha01"
+    viewModelSavedStateVersion = "2.3.0-alpha03"
+    daggerAssistedInjectVersion = "0.5.2"
+    androidArchCoreTestingVersion = '1.1.1'
+    retrofitMockVersion = '4.7.2'
+    ktxVersion = "1.3.0"
+    appcompatVersion = "1.1.0"
+    constraintLayoutVersion = "1.1.3"
+    junitVersion = "4.13"
+    mockitoVersion = "2.21.0"
+    moshiVersion = "1.9.3"
+    navgiationFragmentKtxVersion = "1.0.0"
+    navigationUiKtxVersion = "1.0.0"
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.robert.banyai.wup"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "API_BASE_URL", '"https://raw.githubusercontent.com/wupdigital/interview-api/master/"'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "android.arch.core:core-testing:$androidArchCoreTestingVersion"
+
+    implementation "com.google.android.material:material:$metarialVersion"
+
+    implementation "io.reactivex.rxjava3:rxandroid:$project.rxAndroidVersion"
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$project.retrofitVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$project.okhttpVersion"
+
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$daggerAssistedInjectVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$daggerAssistedInjectVersion"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$viewModelSavedStateVersion"
+    implementation "com.jakewharton.timber:timber:$project.timberVersion"
+
+    implementation "android.arch.navigation:navigation-fragment-ktx:$navgiationFragmentKtxVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$navigationUiKtxVersion"
+}

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeftSide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRightSide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewArrowLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrowleft"
+        android:tint="@color/applicationLightBlue"
+        app:layout_constraintBottom_toBottomOf="@+id/viewPagerCard"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineArrowLeftSide"
+        app:layout_constraintTop_toTopOf="@+id/viewPagerCard" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewArrowRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="180"
+        android:src="@drawable/ic_arrowleft"
+        android:tint="@color/applicationLightBlue"
+        app:layout_constraintBottom_toBottomOf="@+id/viewPagerCard"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineArrowRightSide"
+        app:layout_constraintTop_toTopOf="@+id/viewPagerCard" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineArrowLeftSide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.01" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineArrowRightSide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.99" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/card_list_pager_top_margin"
+        android:overScrollMode="never"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewArrowLeft"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewArrowRight"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.561" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutPagerIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_constraintLeft_toLeftOf="@+id/viewPagerCard"
+        app:layout_constraintRight_toRightOf="@id/viewPagerCard"
+        app:layout_constraintTop_toBottomOf="@+id/viewPagerCard"
+        app:tabBackground="@drawable/card_pager_indicator_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabPaddingEnd="@dimen/card_list_indicator_side_padding"
+        app:tabPaddingStart="@dimen/card_list_indicator_side_padding" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewAvailableAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_list_available_amount_top_margin"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="end"
+        android:textColor="@color/applicationRed"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintLeft_toRightOf="@+id/textViewAvailableAmountTitle"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineRightSide"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayoutPagerIndicator" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewAvailableAmountTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/card_list_available_title"
+        android:textColor="@color/textColorLightBlue"
+        app:layout_constraintBottom_toBottomOf="@id/textViewAvailableAmount"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintRight_toLeftOf="@+id/textViewAvailableAmount"
+        app:layout_constraintTop_toTopOf="@+id/textViewAvailableAmount" />
+
+    <View
+        android:id="@+id/viewChartDefault"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/card_chart_line_default"
+        app:layout_constraintBottom_toBottomOf="@+id/viewChartAvailable"
+        app:layout_constraintHeight_percent="0.006"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toTopOf="@+id/viewChartAvailable" />
+
+    <View
+        android:id="@+id/viewChartAvailable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/card_list_chart_top_margin"
+        android:background="@drawable/card_chart_line_blue"
+        app:layout_constraintHeight_percent="0.019"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineChart"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAvailableAmount" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_alert_background"
+        android:src="@drawable/ic_alert"
+        android:tint="@color/applicationRed"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/viewChartAvailable"
+        app:layout_constraintRight_toRightOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toTopOf="@+id/viewChartAvailable" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineChart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewCurrentBalance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_list_current_balance_top_margin"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="end"
+        android:textColor="@color/textColorBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintRight_toRightOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toBottomOf="@+id/viewChartAvailable" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewCurrentBalanceCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textAllCaps="true"
+        android:textColor="@color/textColorGray"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentBalance"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCurrentBalanceTitle"
+        app:layout_constraintRight_toLeftOf="@+id/textViewCurrentBalance"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrentBalance" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewCurrentBalanceTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/card_list_current_balance_title"
+        android:textColor="@color/textColorLightBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCurrentBalance"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrentBalance" />
+
+    <View
+        android:id="@+id/separatorCurrentBalance"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/card_list_separator_top_margin"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentBalanceTitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewMinPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_list_min_payment_top_margin"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="end"
+        android:textColor="@color/textColorBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintRight_toRightOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toBottomOf="@+id/separatorCurrentBalance" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewMinPaymentCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:textAllCaps="true"
+        android:textColor="@color/textColorGray"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMinPayment"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintRight_toRightOf="@+id/textViewCurrentBalanceCurrency"
+        app:layout_constraintTop_toTopOf="@+id/textViewMinPayment" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewMinPaymentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/card_list_min_payment_title"
+        android:textColor="@color/textColorLightBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMinPaymentCurrency"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintTop_toTopOf="@+id/textViewMinPaymentCurrency" />
+
+    <View
+        android:id="@+id/separatorMinPayment"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/card_list_separator_top_margin"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMinPaymentTitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewDueDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_list_due_date_top_margin"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/textColorBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintRight_toRightOf="@+id/guidelineRightSide"
+        app:layout_constraintTop_toBottomOf="@+id/separatorMinPayment" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewDueDateTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/card_list_due_date_title"
+        android:textColor="@color/textColorLightBlue"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewDueDate"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintRight_toLeftOf="@+id/textViewDueDate"
+        app:layout_constraintTop_toTopOf="@+id/textViewDueDate" />
+
+    <View
+        android:id="@+id/separatorDueDate"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/card_list_separator_top_margin"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineLeftSide"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDueDateTitle" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/card_detail_button_background"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/card_list_details_button_text"
+        android:textColor="@color/applicationLightBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.056"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separatorDueDate"
+        app:layout_constraintWidth_percent="0.44" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:constraint_referenced_ids="buttonDetails, separatorDueDate,textViewDueDate, textViewDueDateTitle,
+        separatorMinPayment, textViewMinPayment, textViewMinPaymentCurrency, textViewMinPaymentTitle,
+        separatorCurrentBalance, textViewCurrentBalanceTitle, textViewCurrentBalance, textViewCurrentBalanceCurrency,
+        viewChartAvailable, viewChartDefault, textViewAvailableAmountTitle, textViewAvailableAmount,
+        tabLayoutPagerIndicator, viewPagerCard, imageViewArrowLeft, imageViewArrowRight" />
+</androidx.constraintlayout.widget.ConstraintLayout>

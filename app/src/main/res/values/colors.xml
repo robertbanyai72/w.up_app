@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="applicationBlue">#004E7B</color>
+    <color name="applicationLightBlue">#539AC6</color>
+    <color name="applicationOrange">#FFAD57</color>
+    <color name="applicationRed">#CE3760</color>
+
+    <color name="navigationItemSelectedColor">#004E7B</color>
+    <color name="navigationItemDefaultColor">#539AC6</color>
+
+    <color name="chartIndicatorBlue">#377AA4</color>
+    <color name="chartIndicatorOrange">#FBB366</color>
+    <color name="chartIndicatorOrangeLight">#FDE5CC</color>
+
+    <color name="cardPagerIndicatorDefault">#4D539AC6</color>
+    <color name="cardPagerIndicatorSelected">#539AC6</color>
+
+    <color name="textColorBlue">#05293E</color>
+    <color name="textColorLightBlue">#004E7B</color>
+    <color name="textColorGray">#99000000</color>
+</resources>

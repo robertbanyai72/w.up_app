@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cardList">
+
+    <fragment
+        android:id="@+id/cardList"
+        android:name="com.robert.banyai.wup.presentation.card.list.CardListFragment"
+        tools:layout="@layout/fragment_card_list">
+        <action
+            android:id="@+id/actionCardDetail"
+            app:destination="@id/cardDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardDetail"
+        android:name="com.robert.banyai.wup.presentation.card.detail.CardDetailFragment"
+        tools:layout="@layout/fragment_card_detail">
+
+        <argument
+            android:name="cardId"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+</navigation>

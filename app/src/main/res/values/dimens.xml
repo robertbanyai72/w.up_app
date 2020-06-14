@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  App Basic  -->
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+
+    <!-- Card List Feature  -->
+    <dimen name="card_list_pager_top_margin">15dp</dimen>
+    <dimen name="card_list_indicator_side_padding">8dp</dimen>
+    <dimen name="card_list_available_amount_top_margin">20dp</dimen>
+    <dimen name="card_list_chart_top_margin">10dp</dimen>
+    <dimen name="card_list_current_balance_top_margin">40dp</dimen>
+    <dimen name="card_list_separator_top_margin">10dp</dimen>
+    <dimen name="card_list_min_payment_top_margin">10dp</dimen>
+    <dimen name="card_list_due_date_top_margin">10dp</dimen>
+
+    <!--  Card Detail Feature  -->
+    <dimen name="card_detail_current_balance_title_top_margin">8dp</dimen>
+    <dimen name="card_detail_available_amount_title_top_margin">8dp</dimen>
+    <dimen name="card_detail_chart_height">40dp</dimen>
+    <dimen name="card_detail_chart_top_margin">15dp</dimen>
+    <dimen name="card_detail_reservations_indicator_width">8dp</dimen>
+    <dimen name="card_detail_reservations_indicator_height">72dp</dimen>
+    <dimen name="card_detail_reservations_indicator_top_margin">16dp</dimen>
+    <dimen name="card_detail_reservations_title_start_margin">8dp</dimen>
+    <dimen name="card_detail_reservations_title_end_margin">20dp</dimen>
+    <dimen name="card_detail_reservations_start_margin">10dp</dimen>
+    <dimen name="card_detail_currency_end_margin">100dp</dimen>
+    <dimen name="card_detail_section_title_top_margin">30dp</dimen>
+    <dimen name="card_detail_balance_carried_title_top_margin">25dp</dimen>
+    <dimen name="card_detail_balance_carried_title_end_margin">20dp</dimen>
+    <dimen name="card_detail_balance_carried_start_margin">10dp</dimen>
+    <dimen name="card_detail_separator_top_margin">10dp</dimen>
+    <dimen name="card_detail_total_spending_title_top_margin">10dp</dimen>
+    <dimen name="card_detail_total_spending_title_end_margin">20dp</dimen>
+    <dimen name="card_detail_total_spending_start_margin">10dp</dimen>
+    <dimen name="card_detail_latest_re_payment_title_top_margin">10dp</dimen>
+    <dimen name="card_detail_account_limit_title_top_margin">25dp</dimen>
+    <dimen name="card_detail_account_title_start_margin">20dp</dimen>
+    <dimen name="card_detail_account_limit_start_margin">10dp</dimen>
+    <dimen name="card_detail_account_number_title_top_margin">10dp</dimen>
+    <dimen name="card_detail_main_card_number_title_top_margin">25dp</dimen>
+    <dimen name="card_detail_main_card_holder_name_title_top_margin">10dp</dimen>
+    <dimen name="card_detail_supplementary_card_number_title_top_margin">25dp</dimen>
+    <dimen name="card_detail_supplementary_card_holder_name_title_top_margin">10dp</dimen>
+    <dimen name="card_detail_separator_supplementary_card_holder_name_bottom_margin">40dp</dimen>
+    <dimen name="bottom_navigation_view_badge_size">16dp</dimen>
+    <dimen name="bottom_navigation_view_badge_start_margin">10dp</dimen>
+    <dimen name="bottom_navigation_view_badge_padding">1dp</dimen>
+    <dimen name="bottom_navigation_badge_top_margin">5dp</dimen>
+
+</resources>
